@@ -108,6 +108,7 @@ export default function Home() {
             </div>
 
             
+          </div>
 
           {/* Desktop promo badge */}
           <div className="hidden lg:block" style={{ position: "absolute", right: "8%", top: "50%", transform: "translateY(-50%)" }}>
