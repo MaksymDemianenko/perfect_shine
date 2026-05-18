@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-ps-gold: #C9A84C;
+  --color-ps-gold-light: #E8D5A3;
+  --color-ps-cream: #F5F0E8;
+  --color-ps-cream-dark: #EDE6D6;
+  --color-ps-brown: #6B5B3E;
+  --color-ps-dark: #2C2416;
+}
+
+:root {
+  --ps-gold: #C9A84C;
+  --ps-gold-light: #E8D5A3;
+  --ps-cream: #F5F0E8;
+  --ps-cream-dark: #EDE6D6;
+  --ps-brown: #6B5B3E;
+  --ps-dark: #2C2416;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Prevent horizontal overflow globally */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--ps-cream);
+  color: var(--ps-dark);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Range slider */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--ps-gold);
+  cursor: pointer;
+  border: 2px solid var(--ps-cream);
+  box-shadow: 0 0 0 1px var(--ps-gold);
+}
+input[type='range']::-moz-range-thumb {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--ps-gold);
+  cursor: pointer;
+  border: 2px solid var(--ps-cream);
+}
+
+/* ── CALC & ORDER: sidebar stacks on mobile ─────────────── */
+.two-col-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .two-col-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .sidebar-sticky {
+    position: static !important;
+    top: auto !important;
+  }
+}
+
+/* ── EXTRAS grid ─────────────────────────────────────────── */
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+@media (max-width: 600px) {
+  .extras-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── SERVICE TYPES grid ──────────────────────────────────── */
+.service-type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+/* ── WHY US ──────────────────────────────────────────────── */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (max-width: 860px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* ── STATS 2x2 ───────────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  background-color: rgba(201,168,76,0.15);
+}
+
+/* ── SERVICES ────────────────────────────────────────────── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5px;
+  background-color: rgba(201,168,76,0.15);
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* ── GALLERY ─────────────────────────────────────────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+
+/* ── STEPS ───────────────────────────────────────────────── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 640px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* ── REVIEWS ─────────────────────────────────────────────── */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+@media (max-width: 600px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+@media (max-width: 860px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ── DATE/TIME/PAYMENT row ───────────────────────────────── */
+.dtp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+}
+@media (max-width: 600px) {
+  .dtp-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .dtp-grid > div:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── ADDRESS row ─────────────────────────────────────────── */
+.address-grid {
+  display: grid;
+  grid-template-columns: 1fr 80px 120px;
+  gap: 0.75rem;
+}
+@media (max-width: 500px) {
+  .address-grid {
+    grid-template-columns: 1fr 80px;
+  }
+  .address-grid > input:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── NAME/PHONE row ──────────────────────────────────────── */
+.name-phone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+@media (max-width: 480px) {
+  .name-phone-grid { grid-template-columns: 1fr; }
+}
+
+/* ── WINDOW BUTTONS ──────────────────────────────────────── */
+.window-btns {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
