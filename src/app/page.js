@@ -107,17 +107,17 @@ export default function Home() {
               ))}
             </div>
 
-            
-          </div>
-
-          {/* Desktop promo badge */}
-          <div className="hidden lg:block" style={{ position: "absolute", right: "8%", top: "50%", transform: "translateY(-50%)" }}>
-            <div style={{ width: 140, height: 140, borderRadius: "50%", background: `radial-gradient(circle, var(--ps-gold) 0%, #A8842A 100%)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", color: cream, textAlign: "center", boxShadow: "0 20px 60px rgba(201,168,76,0.3)" }}>
-              <div style={{ fontFamily: serif, fontSize: 36, fontWeight: 400, lineHeight: 1 }}>-10%</div>
-              <div style={{ fontFamily: sans, fontSize: 8, fontWeight: 300, letterSpacing: "0.2em", textTransform: "uppercase", marginTop: 6, opacity: 0.9 }}>na pierwsze<br />sprzątanie</div>
-              <div style={{ marginTop: 6, fontSize: 10, color: "rgba(245,240,232,0.7)" }}>✦</div>
+            {/* All promo badge */}
+            <div style={{ marginTop: "2rem", display: "inline-flex" }} className="lg:hidden">
+              <div style={{ width: 100, height: 100, borderRadius: "50%", background: `radial-gradient(circle, var(--ps-gold) 0%, #A8842A 100%)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", color: cream, textAlign: "center", boxShadow: "0 10px 40px rgba(201,168,76,0.25)" }}>
+                <div style={{ fontFamily: serif, fontSize: 26, fontWeight: 400, lineHeight: 1 }}>-10%</div>
+                <div style={{ fontFamily: sans, fontSize: 7, fontWeight: 300, letterSpacing: "0.15em", textTransform: "uppercase", marginTop: 4, opacity: 0.9 }}>pierwsze<br />sprzątanie</div>
+              </div>
             </div>
           </div>
+
+         
+          
         </div>
       </section>
 
