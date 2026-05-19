@@ -12,6 +12,52 @@ const Sparkle = ({ style }) => (
   <span style={{ color: "var(--ps-gold)", opacity: 0.45, fontSize: 12, ...style }}>✦</span>
 );
 
+function FAQ() {
+  const [open, setOpen] = useState(null);
+  const serif = "'Cormorant Garamond', Georgia, serif";
+  const sans  = "'Jost', sans-serif";
+
+  const items = [
+    { q: "Ile kosztuje sprzątanie?", a: "Ceny zaczynają się od 450 zł za mieszkanie do 50 m². Dokładna wycena zależy od metrażu, rodzaju usługi i wybranych dodatków. Skorzystaj z naszego kalkulatora lub zadzwoń — wycenimy bezpłatnie." },
+    { q: "Czy przynosicie własny sprzęt i środki czystości?", a: "Tak, nasi pracownicy przyjeżdżają z pełnym wyposażeniem — profesjonalnym sprzętem i certyfikowanymi środkami czystości. Nie musisz nic przygotowywać ani dokupować." },
+    { q: "Jak szybko możecie przyjechać?", a: "W wielu przypadkach jesteśmy w stanie przyjechać już następnego dnia. Skontaktuj się z nami — odpowiemy w ciągu 30 minut i ustalimy najwygodniejszy termin." },
+    { q: "Czy muszę być w domu podczas sprzątania?", a: "Nie musisz. Wielu klientów zostawia nam klucze. Nasi pracownicy są sprawdzeni i godni zaufania. Po zakończeniu poinformujemy Cię o gotowości." },
+    { q: "Co jeśli jestem niezadowolony z efektów?", a: "Mamy gwarancję jakości. Jeśli coś nie spełnia Twoich oczekiwań, wrócimy i poprawimy bezpłatnie. Twoja satysfakcja jest dla nas priorytetem." },
+    { q: "Czy sprzątacie biura i lokale komercyjne?", a: "Tak, oferujemy sprzątanie biur i lokali. Wycena jest indywidualna — zadzwoń lub napisz, a przygotujemy ofertę." },
+    { q: "Jak płacić za usługę?", a: "Akceptujemy gotówkę oraz płatność kartą bezpośrednio u pracownika po wykonaniu usługi. Nie wymagamy przedpłaty." },
+  ];
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+      {items.map((item, i) => (
+        <div key={i} style={{ backgroundColor: "var(--ps-cream)", border: "1px solid rgba(201,168,76,0.15)", overflow: "hidden" }}>
+          <button onClick={() => setOpen(open === i ? null : i)} style={{
+            width: "100%", padding: "1.25rem 1.5rem",
+            display: "flex", justifyContent: "space-between", alignItems: "center",
+            background: "none", border: "none", cursor: "pointer", textAlign: "left", gap: "1rem",
+          }}>
+            <span style={{ fontFamily: serif, fontSize: 17, fontWeight: 400, color: "var(--ps-dark)", lineHeight: 1.4 }}>
+              {item.q}
+            </span>
+            <span style={{
+              fontFamily: serif, fontSize: 22, color: "var(--ps-gold)", flexShrink: 0,
+              display: "inline-block", transition: "transform 0.3s",
+              transform: open === i ? "rotate(45deg)" : "none",
+            }}>+</span>
+          </button>
+          {open === i && (
+            <div style={{ padding: "0 1.5rem 1.25rem" }}>
+              <p style={{ fontFamily: sans, fontSize: 13, fontWeight: 300, color: "var(--ps-brown)", lineHeight: 1.85, margin: 0, opacity: 0.85 }}>
+                {item.a}
+              </p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
   const [lang, setLang] = useState("pl");
 
@@ -23,13 +69,13 @@ export default function Home() {
 
   const t = translations[lang] || translations["pl"];
 
-  const serif = "'Cormorant Garamond', Georgia, serif";
-  const sans  = "'Jost', sans-serif";
-  const gold  = "var(--ps-gold)";
-  const cream = "var(--ps-cream)";
+  const serif    = "'Cormorant Garamond', Georgia, serif";
+  const sans     = "'Jost', sans-serif";
+  const gold     = "var(--ps-gold)";
+  const cream    = "var(--ps-cream)";
   const creamDark = "var(--ps-cream-dark)";
-  const dark  = "var(--ps-dark)";
-  const brown = "var(--ps-brown)";
+  const dark     = "var(--ps-dark)";
+  const brown    = "var(--ps-brown)";
 
   const sectionLabel = {
     fontFamily: sans, fontSize: 10, fontWeight: 300,
@@ -73,7 +119,6 @@ export default function Home() {
         <div style={{ position: "absolute", inset: "1.5rem", border: "1px solid rgba(201,168,76,0.08)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: 1100, margin: "0 auto", paddingTop: 100, width: "100%" }}>
-          {/* Text content */}
           <div style={{ maxWidth: 560 }}>
             <p style={sectionLabel}>
               <Sparkle style={{ marginRight: 8 }} />
@@ -97,7 +142,6 @@ export default function Home() {
               <a href="tel:+48575199937" style={btnOutline}>+48 575 199 937</a>
             </div>
 
-            {/* Trust badges */}
             <div style={{ display: "flex", gap: "1.5rem", marginTop: "2.5rem", flexWrap: "wrap" }}>
               {["Idealna czystość", "Zaangażowanie w detal", "Własny sprzęt"].map((b, i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: 7 }}>
@@ -107,7 +151,6 @@ export default function Home() {
               ))}
             </div>
 
-            {/* All promo badge */}
             <div style={{ marginTop: "2rem", display: "inline-flex" }} className="lg:hidden">
               <div style={{ width: 100, height: 100, borderRadius: "50%", background: `radial-gradient(circle, var(--ps-gold) 0%, #A8842A 100%)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", color: cream, textAlign: "center", boxShadow: "0 10px 40px rgba(201,168,76,0.25)" }}>
                 <div style={{ fontFamily: serif, fontSize: 26, fontWeight: 400, lineHeight: 1 }}>-10%</div>
@@ -115,9 +158,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-         
-          
         </div>
       </section>
 
@@ -182,7 +222,6 @@ export default function Home() {
             </ul>
           </div>
 
-          {/* Stats — always 2 columns */}
           <div className="stats-grid">
             {[
               { num: "200+",   label: "Zadowolonych klientów" },
@@ -237,7 +276,21 @@ export default function Home() {
       {/* ── 7. REVIEWS ── */}
       <Reviews t={t.reviews} />
 
-      {/* ── 8. PRICES CTA ── */}
+      {/* ── 8. FAQ ── */}
+      <section style={{ backgroundColor: creamDark, padding: "80px 1.5rem" }}>
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+            <span style={sectionLabel}>Masz pytania?</span>
+            <h2 style={sectionTitle}>
+              Często zadawane <em style={{ color: gold, fontStyle: "italic" }}>pytania</em>
+            </h2>
+            <div style={goldRule} />
+          </div>
+          <FAQ />
+        </div>
+      </section>
+
+      {/* ── 9. PRICES CTA ── */}
       <section id="prices" style={{ backgroundColor: dark, padding: "80px 1.5rem", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "min(600px, 80vw)", height: "min(600px, 80vw)", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ maxWidth: 640, margin: "0 auto", position: "relative", zIndex: 1 }}>
@@ -250,9 +303,7 @@ export default function Home() {
             {t.pricing.startFrom}
           </p>
           <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/order" style={{ ...btnPrimary }}>
-              {t.hero.button}
-            </Link>
+            <Link href="/order" style={{ ...btnPrimary }}>{t.hero.button}</Link>
             <Link href="/calculator" style={{ ...btnOutline, color: "rgba(201,168,76,0.7)", borderColor: "rgba(201,168,76,0.3)" }}>
               {t.pricing.calculate}
             </Link>
