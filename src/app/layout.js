@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import CookieBanner from "@/components/CookieBanner";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import PromoPopup from "@/components/PromoPopup";
 import "./globals.css";
 
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <GoogleAnalytics />
         {children}
         <CookieBanner />
         <PromoPopup />
