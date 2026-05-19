@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import CookieBanner from "@/components/CookieBanner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -37,7 +38,10 @@ export default function RootLayout({ children }) {
       lang="pl"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <CookieBanner />
+      </body>
     </html>
   );
 }
