@@ -50,6 +50,8 @@ export default function Footer({ t }) {
               { href: "/#steps", label: "Jak działamy" },
               { href: "/order", label: "Zarezerwuj" },
               { href: "/calculator", label: "Kalkulator wyceny" },
+              { href: "/about",   label: "O nas" },
+{ href: "/kontakt", label: "Kontakt" },
             ].map(item => (
               <Link key={item.href} href={item.href} style={S.link}>{item.label}</Link>
             ))}

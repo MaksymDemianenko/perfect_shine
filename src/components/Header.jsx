@@ -28,11 +28,12 @@ export default function Header() {
   const t = translations[lang] || translations["pl"];
 
   const navLinks = [
-    { href: "/#services", label: t.nav?.services  || "Usługi" },
-    { href: "/#prices",   label: t.nav?.prices    || "Cennik" },
-    { href: "/#reviews",  label: t.nav?.reviews   || "Opinie" },
-    { href: "/#steps",    label: t.nav?.howItWorks || "Jak działamy" },
-  ];
+  { href: "/about",     label: t.nav?.about     || "O nas" },
+  { href: "/#services", label: t.nav?.services  || "Usługi" },
+  { href: "/#prices",   label: t.nav?.prices    || "Cennik" },
+  { href: "/#reviews",  label: t.nav?.reviews   || "Opinie" },
+  { href: "/kontakt",   label: t.nav?.contact   || "Kontakt" },
+];
 
   return (
     <>
