@@ -17,11 +17,14 @@ export const metadata = {
     "Profesjonalne sprzątanie mieszkań, biur i lokali w Krakowie. Sprzątanie regularne, generalne, po remoncie. Szybka wycena online. Zadzwoń: +48 575 199 937.",
   keywords:
     "sprzątanie Kraków, sprzątanie mieszkań Kraków, sprzątanie generalne, sprzątanie po remoncie, PerfectShine",
+  verification: {
+    google: "KKD-dAIoUZxip3oLclCAmM_F-KwEQd7weV5gs9E_s6A",
+  },
   openGraph: {
     title: "PerfectShine – Profesjonalne Sprzątanie w Krakowie",
     description:
       "Profesjonalne sprzątanie mieszkań i biur w Krakowie z efektem WOW. Szybka wycena online.",
-    url: "https://perfectshine.pl",
+    url: "https://perfectshine-krakow.pl",
     siteName: "PerfectShine",
     locale: "pl_PL",
     type: "website",
