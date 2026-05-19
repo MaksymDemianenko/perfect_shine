@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import CookieBanner from "@/components/CookieBanner";
+import PromoPopup from "@/components/PromoPopup";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         {children}
         <CookieBanner />
+        <PromoPopup />
       </body>
     </html>
   );
